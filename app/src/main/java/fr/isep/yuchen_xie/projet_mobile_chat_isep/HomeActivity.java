@@ -1,5 +1,8 @@
 package fr.isep.yuchen_xie.projet_mobile_chat_isep;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,6 +10,19 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.widget.LinearLayout;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -17,48 +33,60 @@ public class HomeActivity extends AppCompatActivity {
 
     private ArrayList<String> mImageUrls = new ArrayList<>();
     private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList <String> mStatus = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        if(checkConnection()) {
+            RequestQueue requestQueuereg = Volley.newRequestQueue(this);
+            StringRequest requestreg = new StringRequest(Request.Method.GET, "http://10.0.2.2:3000/annonces/", new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    JSONArray jsonResponse = null;
+                    try {
+                        jsonResponse = new JSONArray(response);
+                       // mNames.add(jsonResponse.getString("name"));
+                       // mDescription.add(jsonResponse.getString("description"));
+                        for(int i= 0;i<jsonResponse.length();i++) {
+                            System.out.println("aaaa" + jsonResponse.getJSONObject(i).getString("description"));
+                            mNames.add(jsonResponse.getJSONObject(i).getString("name"));
+                            mStatus.add(jsonResponse.getJSONObject(i).getString("status"));
+                        }
+                        mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
+                        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
+                        mImageUrls.add("https://i.redd.it/qn7f9oqu7o501.jpg");
 
-        initImageBitmaps();
+                        initImageBitmaps();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.i("err", error.toString());
+                }
+            });
+
+            requestQueuereg.add(requestreg);
+        }
+
+
     }
 
     private void initImageBitmaps(){
-        Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
-        mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
-        mNames.add("Havasu Falls");
-
-        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
-        mNames.add("Trondheim");
-
-        mImageUrls.add("https://i.redd.it/qn7f9oqu7o501.jpg");
-        mNames.add("Portugal");
-
+        /*
         mImageUrls.add("https://i.redd.it/j6myfqglup501.jpg");
-        mNames.add("Rocky Mountain National Park");
-
-
         mImageUrls.add("https://i.redd.it/0h2gm1ix6p501.jpg");
-        mNames.add("Mahahual");
-
         mImageUrls.add("https://i.redd.it/k98uzl68eh501.jpg");
-        mNames.add("Frozen Lake");
-
-
         mImageUrls.add("https://i.redd.it/glin0nwndo501.jpg");
-        mNames.add("White Sands Desert");
-
         mImageUrls.add("https://i.redd.it/obx4zydshg601.jpg");
-        mNames.add("Austrailia");
-
         mImageUrls.add("https://i.imgur.com/ZcLLrkY.jpg");
-        mNames.add("Washington");
-
+        */
         initRecyclerView();
 
     }
@@ -68,10 +96,20 @@ public class HomeActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         StaggeredRecyclerViewAdapter staggeredRecyclerViewAdapter =
-                new StaggeredRecyclerViewAdapter(this, mNames, mImageUrls);
+                new StaggeredRecyclerViewAdapter(this, mNames, mImageUrls,mStatus);
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
         recyclerView.setAdapter(staggeredRecyclerViewAdapter);
     }
+    public boolean checkConnection(){
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            return true;
+        }
+        else
+            return false;
+    }
+
 }
 

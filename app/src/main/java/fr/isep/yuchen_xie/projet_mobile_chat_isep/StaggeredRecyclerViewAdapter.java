@@ -21,12 +21,15 @@ public class StaggeredRecyclerViewAdapter extends RecyclerView.Adapter<Staggered
     private static final String TAG = "StaggeredRecyclerViewAd";
 
     private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList<String> mStatus = new ArrayList<>();
+
     private ArrayList<String> mImageUrls = new ArrayList<>();
     private Context mContext;
 
-    public StaggeredRecyclerViewAdapter(Context context, ArrayList<String> names, ArrayList<String> imageUrls) {
+    public StaggeredRecyclerViewAdapter(Context context, ArrayList<String> names, ArrayList<String> imageUrls,ArrayList<String> status) {
         mNames = names;
         mImageUrls = imageUrls;
+        mStatus = status;
         mContext = context;
     }
 
@@ -47,13 +50,14 @@ public class StaggeredRecyclerViewAdapter extends RecyclerView.Adapter<Staggered
                 .load(mImageUrls.get(position))
                 .apply(requestOptions)
                 .into(holder.image);
-
+        holder.status.setText(mStatus.get(position));
         holder.name.setText(mNames.get(position));
+
 
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: clicked on: " + mNames.get(position));
+                Log.d(TAG, "onClick: clicked on: " + mNames.get(position)+"   "+mStatus.get(position));
                 Toast.makeText(mContext, mNames.get(position), Toast.LENGTH_SHORT).show();
             }
         });
@@ -69,11 +73,13 @@ public class StaggeredRecyclerViewAdapter extends RecyclerView.Adapter<Staggered
 
         ImageView image;
         TextView name;
+        TextView status;
 
         public ViewHolder(View itemView) {
             super(itemView);
             this.image = itemView.findViewById(R.id.imageview_widget);
             this.name = itemView.findViewById(R.id.name_widget);
+            this.status = itemView.findViewById(R.id.status);
         }
     }
 }
