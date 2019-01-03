@@ -1,6 +1,7 @@
 package fr.isep.yuchen_xie.projet_mobile_chat_isep;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,11 +46,26 @@ public class StaggeredRecyclerViewAdapter extends RecyclerView.Adapter<Staggered
 
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background);
+        int id = mContext.getResources().getIdentifier("fr.isep.yuchen_xie.projet_mobile_chat_isep:drawable/"+mImageUrls.get(position), null, null);
 
         Glide.with(mContext)
-                .load(mImageUrls.get(position))
+                .load(id)
                 .apply(requestOptions)
                 .into(holder.image);
+           if(mStatus.get(position).equals("ACCEPTED")){
+               holder.status.setTextColor(ContextCompat.getColor(mContext, R.color.blue));
+           }else if(mStatus.get(position).equals("APPLIED")){
+               holder.status.setTextColor(ContextCompat.getColor(mContext, R.color.orange));
+
+           }
+           else if(mStatus.get(position).equals("AVAILABLE")){
+               holder.status.setTextColor(ContextCompat.getColor(mContext, R.color.red));
+
+           }
+           else if(mStatus.get(position).equals("RETRIEVED")){
+               holder.status.setTextColor(ContextCompat.getColor(mContext, R.color.green));
+
+           }
         holder.status.setText(mStatus.get(position));
         holder.name.setText(mNames.get(position));
 

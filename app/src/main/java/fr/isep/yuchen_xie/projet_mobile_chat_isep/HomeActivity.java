@@ -54,11 +54,8 @@ public class HomeActivity extends AppCompatActivity {
                             System.out.println("aaaa" + jsonResponse.getJSONObject(i).getString("description"));
                             mNames.add(jsonResponse.getJSONObject(i).getString("name"));
                             mStatus.add(jsonResponse.getJSONObject(i).getString("status"));
+                            mImageUrls.add(jsonResponse.getJSONObject(i).getString("photo"));
                         }
-                        mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
-                        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
-                        mImageUrls.add("https://i.redd.it/qn7f9oqu7o501.jpg");
-
                         initImageBitmaps();
                     } catch (JSONException e) {
                         e.printStackTrace();

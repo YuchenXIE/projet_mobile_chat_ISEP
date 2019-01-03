@@ -3,7 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="bluec">#E3FCFF</color>
+    <color name="gris">#FBFBFB</color>
     <color name="trans">#FBFBFB</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#ffa500</color>
+    <color name="blue">#003cff</color>
+    <color name="green">#157b01</color>
+    <color name="shadow">#ebfbfbfb</color>
+
 
 </resources>

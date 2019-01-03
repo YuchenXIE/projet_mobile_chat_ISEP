@@ -43,28 +43,28 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/favbtn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/heart"
-                    android:background="@color/trans"/>
+                    android:background="@color/trans"
+                    app:srcCompat="@drawable/heart" />
 
                 <ImageButton
-                    android:id="@+id/imageButton2"
+                    android:id="@+id/reservationbtn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/reservation"
-                    android:background="@color/trans"/>
+                    android:background="@color/trans"
+                    app:srcCompat="@drawable/reservation" />
 
                 <ImageButton
-                    android:id="@+id/imageButton3"
+                    android:id="@+id/sharebtn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/share"
-                    android:background="@color/trans"/>
+                    android:background="@color/trans"
+                    app:srcCompat="@drawable/share" />
             </LinearLayout>
 
             <TextView
@@ -75,6 +75,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="59dp"
                 android:layout_marginEnd="19dp"
+                android:shadowColor="@color/shadow"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="1"
                 android:text="Status"
                 android:textColor="@color/trans" />
 
