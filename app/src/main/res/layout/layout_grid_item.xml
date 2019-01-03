@@ -60,10 +60,12 @@
 
                 <ImageButton
                     android:id="@+id/sharebtn"
+                    android:layout_below="@+id/sharebtn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/trans"
+                    android:clickable="true"
                     app:srcCompat="@drawable/share" />
             </LinearLayout>
 

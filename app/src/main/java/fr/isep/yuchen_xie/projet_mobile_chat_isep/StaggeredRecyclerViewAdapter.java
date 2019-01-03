@@ -77,6 +77,23 @@ public class StaggeredRecyclerViewAdapter extends RecyclerView.Adapter<Staggered
                 Toast.makeText(mContext, mNames.get(position), Toast.LENGTH_SHORT).show();
             }
         });
+        /*
+          ImageButton share = (ImageButton) findViewById(R.id.sharebtn);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri imageUri = Uri.parse("android.resource://" + getPackageName()
+                        + "/drawable/" + "ic_launcher");
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello");
+                shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+                shareIntent.setType("image/jpeg");
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                startActivity(Intent.createChooser(shareIntent, "send"));
+        }
+        });
+         */
 
     }
 
