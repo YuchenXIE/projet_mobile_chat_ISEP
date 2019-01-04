@@ -10,6 +10,8 @@
     <color name="blue">#003cff</color>
     <color name="green">#157b01</color>
     <color name="shadow">#ebfbfbfb</color>
+    <color name="black">#eb000000</color>
+
 
 
 </resources>

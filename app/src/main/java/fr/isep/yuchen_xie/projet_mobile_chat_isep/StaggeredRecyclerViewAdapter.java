@@ -1,12 +1,15 @@
 package fr.isep.yuchen_xie.projet_mobile_chat_isep;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +35,7 @@ public class StaggeredRecyclerViewAdapter extends RecyclerView.Adapter<Staggered
         mImageUrls = imageUrls;
         mStatus = status;
         mContext = context;
+
     }
 
     @Override
@@ -94,6 +98,31 @@ public class StaggeredRecyclerViewAdapter extends RecyclerView.Adapter<Staggered
         }
         });
          */
+        holder.share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri imageUri = Uri.parse("android.resource://" + mContext.getPackageName()
+                        + "/drawable/" + mImageUrls.get(position));
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Share your favorite geev");
+                shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+                shareIntent.setType("image/jpg");
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                mContext.startActivity(Intent.createChooser(shareIntent, "send"));            }
+        });
+        holder.fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        holder.reservation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
     }
 
@@ -107,12 +136,16 @@ public class StaggeredRecyclerViewAdapter extends RecyclerView.Adapter<Staggered
         ImageView image;
         TextView name;
         TextView status;
+        ImageButton share,fav,reservation;
 
         public ViewHolder(View itemView) {
             super(itemView);
             this.image = itemView.findViewById(R.id.imageview_widget);
             this.name = itemView.findViewById(R.id.name_widget);
             this.status = itemView.findViewById(R.id.status);
+            this.share = itemView.findViewById(R.id.sharebtn);
+            this.reservation = itemView.findViewById(R.id.reservationbtn);
+            this.fav = itemView.findViewById(R.id.favbtn);
         }
     }
 }
