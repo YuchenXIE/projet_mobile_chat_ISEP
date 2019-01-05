@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">Geevs</string>
+    <string name="image_item_description">Item Image</string>
+    <string name="item_name">Name of the item</string>
+    <string name="item_publiched_at">Published at</string>
+    <string name="item_published_date">05/01/2019</string>
+    <string name="item_views">Views</string>
+    <string name="item_view_num">1</string>
+    <string name="item_description_title">Description</string>
+    <string name="item_description_content">This is a nice item.</string>
+    <string name="receiver_applied">Receiver Applied</string>
+    <string name="receiver_name">Receiver Name</string>
+    <string name="receiver_tel_title">Tel:</string>
+    <string name="receiver_tel_content">0712345678</string>
+    <string name="receiver_email_title">Email:</string>
+    <string name="receiver_email_content">email_address@email.com</string>
+    <string name="receiver_address_title">Address:</string>
+    <string name="receiver_address_content">28 Rue Notre Dame des Champs,75006 Paris</string>
+    <string name="button_accept">Accept</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="donator_info">Donator Info</string>
+    <string name="donator_name">Donator Name</string>
+    <string name="donator_tel_title">Tel:</string>
+    <string name="donator_tel_content">0612345678</string>
+    <string name="donator_email_title">Email:</string>
+    <string name="donator_email_content">donator_address@email.com</string>
+    <string name="donator_address_title">Address:</string>
+    <string name="donator_address_content">10 Rue de Vanves, 92130 Issy-les-Moulineaux</string>
+    <string name="button_reservation">Reservation</string>
 </resources>
