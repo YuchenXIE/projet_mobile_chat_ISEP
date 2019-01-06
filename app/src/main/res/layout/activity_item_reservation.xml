@@ -7,7 +7,7 @@
     tools:context=".Item_reservation">
 
     <ImageView
-        android:id="@+id/imageView_item_description"
+        android:id="@+id/imageView_item"
         android:layout_width="70dp"
         android:layout_height="105dp"
         android:layout_marginStart="8dp"
@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/image_box" />
 
     <ImageView
-        android:id="@+id/imageView_item_description2"
+        android:id="@+id/imageView_item_donator"
         android:layout_width="70dp"
         android:layout_height="105dp"
         android:layout_marginStart="8dp"
@@ -29,14 +29,14 @@
         app:srcCompat="@drawable/image_box" />
 
     <TextView
-        android:id="@+id/textView_item_description"
+        android:id="@+id/textView_item_name"
         android:layout_width="174dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/item_name"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView_item_description"
+        app:layout_constraintStart_toEndOf="@+id/imageView_item"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -47,7 +47,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/item_publiched_at"
         app:layout_constraintEnd_toStartOf="@+id/textView_item_published_date"
-        app:layout_constraintTop_toBottomOf="@+id/textView_item_description" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_name" />
 
     <TextView
         android:id="@+id/textView_item_published_date"
@@ -57,7 +57,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/item_published_date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_item_description" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_name" />
 
     <TextView
         android:id="@+id/textView_item_views"
@@ -110,7 +110,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
         android:text="@string/donator_info"
-        app:layout_constraintStart_toEndOf="@+id/imageView_item_description2"
+        app:layout_constraintStart_toEndOf="@+id/imageView_item_donator"
         app:layout_constraintTop_toBottomOf="@+id/textView_item_description_content" />
 
     <TextView
@@ -122,7 +122,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/donator_name"
         app:layout_constraintEnd_toStartOf="@+id/textView_tel_title"
-        app:layout_constraintStart_toEndOf="@+id/imageView_item_description2"
+        app:layout_constraintStart_toEndOf="@+id/imageView_item_donator"
         app:layout_constraintTop_toBottomOf="@+id/textView_donator_info" />
 
     <TextView
@@ -194,6 +194,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:text="@string/button_reservation"
+        android:onClick="button_reservationClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_address_title" />

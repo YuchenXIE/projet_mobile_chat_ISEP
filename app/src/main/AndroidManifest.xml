@@ -26,7 +26,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".Item_reservation"></activity>
+        <activity android:name=".Item_reservation" />
+        <activity android:name=".ItemCreation"></activity>
     </application>
 
 </manifest>

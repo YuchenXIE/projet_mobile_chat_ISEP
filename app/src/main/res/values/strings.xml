@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Geevs</string>
     <string name="image_item_description">Item Image</string>
+    <string name="item_name_title">Name</string>
     <string name="item_name">Name of the item</string>
     <string name="item_publiched_at">Published at</string>
-    <string name="item_published_date">05/01/2019</string>
+    <string name="item_published_date">01/01/2019</string>
     <string name="item_views">Views</string>
     <string name="item_view_num">1</string>
     <string name="item_description_title">Description</string>
@@ -27,4 +28,5 @@
     <string name="donator_address_title">Address:</string>
     <string name="donator_address_content">10 Rue de Vanves, 92130 Issy-les-Moulineaux</string>
     <string name="button_reservation">Reservation</string>
+    <string name="button_submit">Submit</string>
 </resources>
