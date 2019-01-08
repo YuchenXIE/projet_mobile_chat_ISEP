@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Item_details"
+    tools:layout_editor_absoluteY="81dp">
+
+    <ImageView
+        android:id="@+id/imageView_item"
+        android:layout_width="70dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/image_item_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image_box" />
+
+    <ImageView
+        android:id="@+id/imageView_receiver"
+        android:layout_width="70dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/image_item_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_description_content"
+        app:srcCompat="@drawable/image_box" />
+
+    <TextView
+        android:id="@+id/textView_item_name"
+        android:layout_width="174dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/item_name"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView_item"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_item_published_at"
+        android:layout_width="85dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/item_publiched_at"
+        app:layout_constraintEnd_toStartOf="@+id/textView_item_published_date"
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_name" />
+
+    <TextView
+        android:id="@+id/textView_item_published_date"
+        android:layout_width="79dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/item_published_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_name" />
+
+    <TextView
+        android:id="@+id/textView_item_views"
+        android:layout_width="85dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/item_views"
+        app:layout_constraintEnd_toStartOf="@+id/textView_item_view_num"
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_published_at" />
+
+    <TextView
+        android:id="@+id/textView_item_view_num"
+        android:layout_width="78dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/item_view_num"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_published_date" />
+
+    <TextView
+        android:id="@+id/textView_item_description_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/item_description_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_views" />
+
+    <TextView
+        android:id="@+id/textView_item_description_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/item_description_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_description_title" />
+
+    <TextView
+        android:id="@+id/textView_receiver_applied"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/receiver_applied"
+        app:layout_constraintStart_toEndOf="@+id/imageView_receiver"
+        app:layout_constraintTop_toBottomOf="@+id/textView_item_description_content" />
+
+    <TextView
+        android:id="@+id/textView_receiver_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/receiver_name"
+        app:layout_constraintEnd_toStartOf="@+id/textView_tel_title"
+        app:layout_constraintStart_toEndOf="@+id/imageView_receiver"
+        app:layout_constraintTop_toBottomOf="@+id/textView_receiver_applied" />
+
+    <TextView
+        android:id="@+id/textView_tel_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/receiver_tel_title"
+        app:layout_constraintEnd_toStartOf="@+id/textView_tel_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView_receiver_applied" />
+
+    <TextView
+        android:id="@+id/textView_tel_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/receiver_tel_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView_tel_title" />
+
+    <TextView
+        android:id="@+id/textView_email_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/receiver_email_title"
+        app:layout_constraintEnd_toStartOf="@+id/textView_email_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView_receiver_name" />
+
+    <TextView
+        android:id="@+id/textView_email_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/receiver_email_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_receiver_name" />
+
+    <TextView
+        android:id="@+id/textView_address_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/receiver_address_title"
+        app:layout_constraintEnd_toStartOf="@+id/textView_address_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_email_title" />
+
+    <TextView
+        android:id="@+id/textView_address_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/receiver_address_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_email_title" />
+
+    <Button
+        android:id="@+id/button_receiver_accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/button_accept"
+        android:onClick="button_receiver_acceptClick"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_address_title" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="88dp"
+        android:text="@string/button_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_address_title" />
+
+</android.support.constraint.ConstraintLayout>

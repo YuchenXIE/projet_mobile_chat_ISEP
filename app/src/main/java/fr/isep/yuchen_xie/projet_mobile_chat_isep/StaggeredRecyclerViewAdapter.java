@@ -120,6 +120,12 @@ public class StaggeredRecyclerViewAdapter extends RecyclerView.Adapter<Staggered
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + mNames.get(position)+"   "+mStatus.get(position));
                 Toast.makeText(mContext, mNames.get(position), Toast.LENGTH_SHORT).show();
+                ///8/8/activity itr
+                Intent intent = new Intent(mContext, Item_reservation.class);
+                intent.putExtra("name", mNames.get(position));
+                intent.putExtra("photo", mImageUrls.get(position));
+                mContext.startActivity(intent);
+
             }
         });
         /*
