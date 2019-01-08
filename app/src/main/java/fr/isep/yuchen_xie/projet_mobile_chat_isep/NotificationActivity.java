@@ -79,7 +79,7 @@ public class NotificationActivity extends AppCompatActivity {
 
             requestQueuereg.add(requestreg);
         }
-        Notification notification = new Notification("12/12/1121","ahmed","refuse","07775000","hellouser");
+        Notification notification = new Notification("12/12/1122","ahmed","refuse","07775000","hellouser");
         notificationList.add(notification);
         mAdapter = new NotificationDataAdapter(notificationList);
     }
