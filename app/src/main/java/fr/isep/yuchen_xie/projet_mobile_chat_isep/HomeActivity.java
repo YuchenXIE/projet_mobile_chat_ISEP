@@ -117,5 +117,9 @@ public class HomeActivity extends AppCompatActivity {
             return false;
     }
 
+    public void creationClick(View view) {
+        Intent intent = new Intent(this, ItemCreation.class);
+        startActivity(intent);
+    }
 }
 
