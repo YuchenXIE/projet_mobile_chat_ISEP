@@ -1,4 +1,14 @@
 package fr.isep.yuchen_xie.projet_mobile_chat_isep;
+/*
+ *
+ *
+ * @Mdalel_ahmed
+ *
+ * ISEP
+ * 2019
+ *
+ *
+ */
 
 import android.graphics.Canvas;
 import android.graphics.Color;

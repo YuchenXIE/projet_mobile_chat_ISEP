@@ -6,6 +6,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+/*
+ *
+ *
+ * @Mdalel_ahmed
+ *
+ * ISEP
+ * 2019
+ *
+ *
+ */
 
 public class NotificationDataAdapter  extends RecyclerView.Adapter<NotificationDataAdapter.NotificationViewHolder> {
     public List<Notification> Notifications;

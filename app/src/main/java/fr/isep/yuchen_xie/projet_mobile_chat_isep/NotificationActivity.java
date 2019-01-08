@@ -9,6 +9,16 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+/*
+ *
+ *
+ * @Mdalel_ahmed
+ *
+ * ISEP
+ * 2019
+ *
+ *
+ */
 
 public class NotificationActivity extends AppCompatActivity {
     private NotificationDataAdapter mAdapter;
