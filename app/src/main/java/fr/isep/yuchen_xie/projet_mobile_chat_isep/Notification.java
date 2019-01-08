@@ -13,6 +13,7 @@ package fr.isep.yuchen_xie.projet_mobile_chat_isep;
 public class Notification {
     String date,fromuser,status,telephonenumber,donname;
 
+
     public Notification(String date, String fromuser, String status, String telephonenumber, String donname) {
         this.date = date;
         this.fromuser = fromuser;
