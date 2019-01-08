@@ -87,8 +87,6 @@ public class HomeActivity extends AppCompatActivity {
 
             requestQueuereg.add(requestreg);
         }
-
-
     }
 
     private void initImageBitmaps(){
