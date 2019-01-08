@@ -34,7 +34,7 @@ public class ItemCreation extends Activity {
 
     public void button_submitClick(View view) {
         String currentDateTimeString = DateFormat.getDateInstance().format(new Date());
-        String url = "http://10.0.2.2:3000/reservations?date_publication=" + currentDateTimeString + "&&status=created&&categorie=item&&name=" + item_name +
+        String url = "http://10.0.2.2:3000/annonces?date_publication=" + currentDateTimeString + "&&status=created&&categorie=item&&name=" + item_name +
                 "&&description=" +item_description + "&&phtot=photo_url&&id_user_pub=3";
 
 
