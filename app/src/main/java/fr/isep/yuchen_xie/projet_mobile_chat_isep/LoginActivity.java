@@ -18,7 +18,7 @@ public class LoginActivity extends Activity {
         BtnSI0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                Intent intent = new Intent(LoginActivity.this,NotificationActivity.class);
                 startActivity(intent);
 
             }
