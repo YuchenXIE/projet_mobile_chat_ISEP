@@ -31,6 +31,18 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+/*
+*
+*
+* @Mdalel_ahmed
+*
+* ISEP
+* 2019
+*
+*
+*/
+
 public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -56,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
                        // mNames.add(jsonResponse.getString("name"));
                        // mDescription.add(jsonResponse.getString("description"));
                         for(int i= 0;i<jsonResponse.length();i++) {
-                            System.out.println("aaaa" + jsonResponse.getJSONObject(i).getString("description"));
+                      //      System.out.println("aaaa" + jsonResponse.getJSONObject(i).getString("description"));
                             mNames.add(jsonResponse.getJSONObject(i).getString("name"));
                             mStatus.add(jsonResponse.getJSONObject(i).getString("status"));
                             mImageUrls.add(jsonResponse.getJSONObject(i).getString("photo"));
@@ -77,19 +89,10 @@ public class HomeActivity extends AppCompatActivity {
         }
 
 
-
     }
 
     private void initImageBitmaps(){
 
-        /*
-        mImageUrls.add("https://i.redd.it/j6myfqglup501.jpg");
-        mImageUrls.add("https://i.redd.it/0h2gm1ix6p501.jpg");
-        mImageUrls.add("https://i.redd.it/k98uzl68eh501.jpg");
-        mImageUrls.add("https://i.redd.it/glin0nwndo501.jpg");
-        mImageUrls.add("https://i.redd.it/obx4zydshg601.jpg");
-        mImageUrls.add("https://i.imgur.com/ZcLLrkY.jpg");
-        */
         initRecyclerView();
 
     }

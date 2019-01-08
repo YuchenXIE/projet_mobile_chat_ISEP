@@ -1,4 +1,14 @@
 package fr.isep.yuchen_xie.projet_mobile_chat_isep;
+/*
+ *
+ *
+ * @Mdalel_ahmed
+ *
+ * ISEP
+ * 2019
+ *
+ *
+ */
 
 public class Notification {
     String date,fromuser,status,telephonenumber,donname;
