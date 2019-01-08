@@ -42,22 +42,22 @@ public class NotificationActivity extends AppCompatActivity {
     SwipeController swipeController = null;
 
     SwipeController swipeController2 = null;
-    private String id_annonce,id_user;
+    public List<Notification> notificationList = new ArrayList<>();
 
-    public String getId_annonce() {
-        return id_annonce;
+    public List<Notification> getNotificationList() {
+        return notificationList;
     }
 
-    public void setId_annonce(String id_annonce) {
-        this.id_annonce = id_annonce;
+    public void setNotificationList(List<Notification> notificationList) {
+        this.notificationList = notificationList;
     }
 
-    public String getId_user() {
-        return id_user;
+    public NotificationDataAdapter getmAdapter() {
+        return mAdapter;
     }
 
-    public void setId_user(String id_user) {
-        this.id_user = id_user;
+    public void setmAdapter(NotificationDataAdapter mAdapter) {
+        this.mAdapter = mAdapter;
     }
 
     @Override
@@ -69,7 +69,6 @@ public class NotificationActivity extends AppCompatActivity {
         setupRecyclerView();
     }
     private void setNotificationDataAdapter() {
-        List<Notification> notificationList = new ArrayList<>();
         if(checkConnection()) {
             RequestQueue requestQueuereg = Volley.newRequestQueue(this);
 
@@ -77,42 +76,22 @@ public class NotificationActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     JSONArray jsonResponse = null;
+                    List<Notification> notificationList2 = new ArrayList<>();
                     try {
-                        RequestQueue requestQueuereg2 = Volley.newRequestQueue(NotificationActivity.this);
-
                         jsonResponse = new JSONArray(response);
                         // mNames.add(jsonResponse.getString("name"));
                         // mDescription.add(jsonResponse.getString("description"));
                         for(int i= 0;i<jsonResponse.length();i++) {
-                                    setId_annonce(jsonResponse.getJSONObject(i).getString("id_annonce"));
-                                StringRequest requestreg2 = new StringRequest(Request.Method.GET, "http://10.0.2.2:3000/annonces/", new Response.Listener<String>() {
-                                    @Override
-                                    public void onResponse(String response) {
-                                        JSONArray jsonResponse2 = null;
+                            Notification notification = new Notification(jsonResponse.getJSONObject(i).getString("date_reservation"),jsonResponse.getJSONObject(i).getJSONObject("id_annonce").getString("name"),jsonResponse.getJSONObject(i).getJSONObject("id_annonce").getString("status"),jsonResponse.getJSONObject(i).getJSONObject("id_user").getString("telephone"),jsonResponse.getJSONObject(i).getJSONObject("id_annonce").getJSONObject("id_user_pub").getString("frist_name"));
+                            notificationList2.add(notification);
 
-                                        try {
-                                            jsonResponse2 = new JSONArray(response);
-                                            // mNames.add(jsonResponse.getString("name"));
-                                            // mDescription.add(jsonResponse.getString("description"));
-                                            for(int i= 0;i<jsonResponse2.length();i++) {
-                                                  if(getId_annonce().equals(jsonResponse2.getJSONObject(i).getString("id_annonce"))){
-                                                      System.out.println("tres bien");
-                                                  }
+                        }
+                        NotificationActivity.this.setNotificationList(notificationList2);
+                        System.out.println(NotificationActivity.this.getNotificationList().size());
+                        mAdapter = new NotificationDataAdapter(NotificationActivity.this.getNotificationList());
+                        RecyclerView recyclerView = findViewById(R.id.recyclerViewnotification);
+                        recyclerView.setAdapter(mAdapter);
 
-                                            }
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                }, new Response.ErrorListener() {
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
-                                        Log.i("err", error.toString());
-                                    }
-                                });
-
-                                requestQueuereg2.add(requestreg2);
-                            }
 
 
                     } catch (JSONException e) {
@@ -125,12 +104,15 @@ public class NotificationActivity extends AppCompatActivity {
                     Log.i("err", error.toString());
                 }
             });
-
+         //   Notification notification2 = new Notification("dd","zede","ss","07775000","hellouser");
+           // System.out.println(NotificationActivity.this.getNotificationList().size());
+           // notificationList.add(notification2);
             requestQueuereg.add(requestreg);
         }
-        Notification notification = new Notification(getId_annonce(),"ahmed","refuse","07775000","hellouser");
-        notificationList.add(notification);
-        mAdapter = new NotificationDataAdapter(notificationList);
+
+
+
+
     }
 
     private void setupRecyclerView() {
@@ -153,8 +135,8 @@ public class NotificationActivity extends AppCompatActivity {
 
              emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
              emailIntent.putExtra(Intent.EXTRA_CC, CC);
-             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your subject");
-             emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message goes here");
+             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "GEEVS");
+             emailIntent.putExtra(Intent.EXTRA_TEXT, "THANK YOU for your geev");
 
              try {
                  startActivity(Intent.createChooser(emailIntent, "Send mail..."));
@@ -171,6 +153,32 @@ public class NotificationActivity extends AppCompatActivity {
              mAdapter.Notifications.remove(position);
              mAdapter.notifyItemRemoved(position);
              System.out.println("ok");
+             /*
+             if(checkConnection()) {
+                 RequestQueue requestQueuereg = Volley.newRequestQueue(NotificationActivity.this);
+
+                 StringRequest requestreg = new StringRequest(Request.Method.DELETE, "http://10.0.2.2:3000/reservations/", new Response.Listener<String>() {
+                     @Override
+                     public void onResponse(String response) {
+                         JSONArray jsonResponse = null;
+                         List<Notification> notificationList2 = new ArrayList<>();
+                         try {
+                             jsonResponse = new JSONArray(response);
+                             for(int i= 0;i<jsonResponse.length();i++) {
+
+                             }
+                         } catch (JSONException e) {
+                             e.printStackTrace();
+                         }
+                     }
+                 }, new Response.ErrorListener() {
+                     @Override
+                     public void onErrorResponse(VolleyError error) {
+                         Log.i("err", error.toString());
+                     }
+                 });
+                 requestQueuereg.add(requestreg);
+             }*/
              mAdapter.notifyItemRangeChanged(position, mAdapter.getItemCount());
          }
      });
